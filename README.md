@@ -1,2 +1,2 @@
 # laptopconfig
-arch linux install personnel configuration files
+arch linux/nixos personnel configuration files
