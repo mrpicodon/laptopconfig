@@ -1,0 +1,1 @@
+Personal configuration for nixos
