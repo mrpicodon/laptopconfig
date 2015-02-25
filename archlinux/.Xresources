@@ -1,0 +1,45 @@
+! My Xresources Setting
+! Chih-Kang Huang
+! 25/02/2015
+
+! Xft settings -----
+Xft.dpi:	192
+Xft.antialias:	true
+
+! xterm ----
+xterm*faceName:	Monospace:style=Regular:size=11:antialias=true
+xterm*faceNameDoublesize: WenQuanYi Micro Hei:antialias=True:size=14
+XTerm*reverseVideo: on
+XTerm*locale: true
+! Forbid bold font faces; bold type is light blue.
+XTerm*colorBDMode: true
+XTerm*colorBD: rgb:82/a4/d3
+! ! Do not underscore text, underlined text is white.
+XTerm*colorULMode: true
+XTerm*colorUL: rgb:e4/e4/e4
+xterm*foreground: black
+xterm*background: gray
+XTerm*inputMethod: ibus 
+
+! urxvt ----
+URxvt.font: xft:Monospace:size=11:antialias=true,xft: WenQuanYi Micro Hei:size=14:antialias=true
+! URxvt.depth: 32
+URxvt.background: [90]#000000
+URxvt.foreground: Gray
+
+! clickable url
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/firefox
+URxvt.matcher.button: 1
+
+! inputMethod
+URxvt.inputMethod:ibus
+
+! scrollbar style - rxvt (default), plain (most compact), next, or xterm
+URxvt.scrollstyle: plain
+
+! font spacing
+URxvt.letterSpace: -1
+URxvt.lineSpace: 2
+URxvt.tripleclickwords: true
+URxvt.insecure: true
