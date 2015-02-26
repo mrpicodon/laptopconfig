@@ -50,13 +50,13 @@ with lib;
   };
 
   ##### /etc/locale.conf 
-  environment.etc = singleton {
-	target = "locale.conf";
-	source = pkgs.writeText "locale.conf"
-	   ''
-		LANG=${config.i18n.defaultLocale}
-	   '';
-  };
+  ###environment.etc = singleton {
+  ###	target = "locale.conf";
+  ###	source = pkgs.writeText "locale.conf"
+  ###	   ''
+  ###		LANG=${config.i18n.defaultLocale}
+  ###	   '';
+  ###};
 
   
 
