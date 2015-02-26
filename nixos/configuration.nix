@@ -1,5 +1,6 @@
 # Personnel Computer Config 
 # Chih-Kang Huang
+# 26/02/2015
 
 { config, lib, pkgs, ... }:
 
@@ -18,6 +19,7 @@ with lib;
   boot.loader.grub = {
 	enable = true;
 	version = 2;
+	device = "/dev/sda";
   # Define on which hard drive you want to install Grub. Set to "nodev" to
   # not install it to the MBR at all, but only install the boot menu. This is
   # handy if you have NixOS installed on a USB stick that gets a different
@@ -28,7 +30,7 @@ with lib;
 
   ##### Networking #####
   networking = {
-	hostName = nixos;
+	hostName = "nixos";
 	networkmanager.enable = true;
   };
   
@@ -56,9 +58,7 @@ with lib;
 	   '';
   };
 
-  environment.sessionVariables = 
-	{ LANG = config.i18n.defaultLocale;
-	};
+  
 
   ##### Xserver #####
   services.xserver = {
