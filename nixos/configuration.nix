@@ -95,6 +95,7 @@ with lib;
 	htop
 	firefox
 	firefoxWrapper
+	ibus
 	iw
 	manpages  ## for "man 2 fork" etc.
 	networkmanager
