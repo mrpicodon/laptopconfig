@@ -69,6 +69,12 @@ with lib;
 	windowManager.default = "xmonad";
 	windowManager.xmonad.enable = true;
 	windowManager.xmonad.enableContribAndExtras = true;
+	
+	##### Touchpad #####
+	synaptics = {
+		enable = true;
+		twoFingerScroll = true;
+	};
   };
 
 
