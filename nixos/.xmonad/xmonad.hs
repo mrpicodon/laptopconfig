@@ -31,6 +31,7 @@ myLogHook dest = dynamicLogWithPP defaultPP { ppOutput = hPutStrLn dest
 myKeys = [ ("M-S-h"	, spawn "shutdown -h now")	--halt
 	 , ("M-S-r"	, spawn "reboot"	 )	--reboot
 	 , ("M-S-l"	, spawn "i3lock"	 )	--use i3lock
+	 ]
 
 main = do
 	xmproc <- spawnPipe "/usr/bin/env xmobar ~/.xmonad/xmobarrc"
