@@ -8,6 +8,7 @@ import XMonad.Config.Azerty
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
+import XMonad.Util.EZConfig
 import XMonad.Util.Run
 import System.IO
 
