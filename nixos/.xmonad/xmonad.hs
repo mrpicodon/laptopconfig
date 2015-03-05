@@ -7,6 +7,7 @@ import XMonad
 import XMonad.Config.Azerty  
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
 import XMonad.Util.Run
 import System.IO
 
@@ -21,9 +22,18 @@ myManageHook= composeAll
 	[ className =? "Firefox" --> doShift "1: Euler"
 	, className =? "Vlc" --> doShift "2: Lagrange"
 	]
+	
+-- fix workspace output
+myLogHook dest = dynamicLogWithPP defaultPP { ppOutput = hPutStrLn dest 
+					    , ppVisible = wrap "(" ")"
+					    }
+
+myKeys = [ ("M-S-h"	, spawn "shutdown -h now")	--halt
+	 , ("M-S-r"	, spawn "reboot"	 )	--reboot
+	 , ("M-S-l"	, spawn "i3lock"	 )	--use i3lock
 
 main = do
-	xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmobarrc"
+	xmproc <- spawnPipe "/usr/bin/env xmobar ~/.xmonad/xmobarrc"
 	xmonad $ azertyConfig  
 		{ workspaces = myWorkspaces
 		, modMask = myModMask
@@ -33,6 +43,7 @@ main = do
 		, layoutHook = avoidStruts $ layoutHook defaultConfig
   		, startupHook = startup
 		}
+		`additionalKeysP` myKeys
 
 -- startup applications
 startup :: X()
