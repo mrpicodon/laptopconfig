@@ -1,6 +1,6 @@
 -- xmonad configuration
 -- Chih-Kang Huang
--- 28/02/2015
+-- 05/03/2015
 
 -- import modules
 import XMonad  
@@ -19,6 +19,7 @@ myBorderWidth = 2
 -- Define workspaces for certain applications
 myManageHook= composeAll
 	[ className =? "Firefox" --> doShift "1: Euler"
+	, className =? "Vlc" --> doShift "2: Lagrange"
 	]
 
 main = do
@@ -37,3 +38,4 @@ main = do
 startup :: X()
 startup = do 
 	spawn "exec --no-startup-id feh --bg-scale ~/Images/math_pictures/T-Gyroid.jpg"
+	spawn "xsetroot -cursor_name left_ptr" -- fix the xcursor
