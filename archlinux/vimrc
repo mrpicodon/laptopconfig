@@ -1,0 +1,149 @@
+"" Chih-Kang Huang vimrc
+
+" Vim5 and later versions support syntax highlighting. Uncommenting the next
+" " line enables syntax highlighting by default.
+ if has("syntax")
+   syntax on
+   endif
+"
+"   " If using a dark background within the editing area and syntax
+"   highlighting
+"   " turn on this option as well
+set background=dark
+"
+"   " The following are commented out as they cause vim to behave a lot
+"   " differently from regular Vi. They are highly recommended though.
+set showcmd		" Show (partial) command in status line.
+   "set showmatch		" Show matching brackets.
+   "set ignorecase		" Do case insensitive matching
+   "set smartcase		" Do smart case matching
+   "set incsearch		" Incremental search
+   "set autowrite		" Automatically save before commands like
+"   :next and :make
+   "set hidden             " Hide buffers when they are abandoned
+set mouse=a		" Enable mouse usage (all modes)
+set number
+
+"" {{ Vim-plug
+call plug#begin('~/.vim/plugged')
+
+" Colorscheme jellybeans
+Plug 'nanotech/jellybeans.vim'
+
+" Vim-Colorscheme
+Plug 'altercation/vim-colors-solarized'
+Plug 'flazz/vim-colorschemes'
+
+" Vim-airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" YouCompleteMe
+" Plug 'Valloric/YouCompleteMe'
+
+" vim-latex-suite
+Plug 'gerw/vim-latex-suite'
+
+" Make sure you use single quotes
+"
+" " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+" Plug 'junegunn/vim-easy-align'
+"
+" " Any valid git URL is allowed
+" Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+"
+" " Group dependencies, vim-snippets depends on ultisnips
+" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+"
+" " On-demand loading
+" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+"
+" " Using a non-master branch
+" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+"
+" " Plugin options
+" Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+"
+" " Plugin outside ~/.vim/plugged with post-update hook
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"
+" " Unmanaged plugin (manually installed and updated)
+" Plug '~/my-prototype-plugin'
+
+" " Add plugins to &runtimepath
+call plug#end()
+filetype plugin indent off
+"" }}
+
+
+"" {{ Colorscheme 
+colorscheme jellybeans
+"" }}
+
+" {{ vim-airline
+ "" appear all the time
+set laststatus=2
+
+"" theme
+let g:airline_theme= 'tomorrow'
+" }}
+"
+"
+"
+"
+
+"""{{ vim-latex settings
+" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
+filetype plugin on
+
+" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
+" " can be called correctly.
+" set shellslash
+"
+" " IMPORTANT: grep will sometimes skip displaying the file name if you
+" " search in a singe file. This will confuse Latex-Suite. Set your grep
+" " program to always generate a file-name.
+set grepprg=grep\ -nH\ $*
+"
+" " OPTIONAL: This enables automatic indentation as you type.
+" filetype indent on
+"
+" " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults
+" to
+" " 'plaintex' instead of 'tex', which results in vim-latex not being
+" loaded.
+" " The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
+ 
+"compile .tex with pdflatex enable synctex
+"let g:Tex_CompileRule_pdf = 'pdflatex -synctex=1 -interaction=nonstopmode $*'
+"compile .tex with pdflatex without synctex
+let g:Tex_CompileRule_pdf = 'pdflatex -interaction=nonstopmode $*'
+
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_MultipleCompileFormats='pdf'
+
+" let g:Tex_ViewRule_pdf ='~/bin/vimura'
+let g:Tex_ViewRule_pdf ='zathura -l error'
+
+" Define Syntex function, open with zathura
+"function! Synctex()
+"	" remove 'silent' for debugging
+"	execute "silent !zathura --synctex-forward " . line('.') . ":" . col('.') . ":" . bufname('%') . " " . g:syncpdf
+"endfunction
+"map <C-enter> :call Synctex()<cr>
+
+
+"changer '`' en ',' par exemple ',a' donne '\alpha'
+let g:Tex_Leader=','
+"
+""fixing of é letter :
+imap <buffer> <leader>it <Plug>Tex_InsertItemOnThisLine
+imap <C-b> <Plug>Tex_MathBF
+imap <C-c> <Plug>Tex_MathCal
+imap <C-l> <Plug>Tex_LeftRight
+"" }}
+
+""" YCM settings
+let g:ycm_confirm_extra_conf = 0
