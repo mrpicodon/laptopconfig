@@ -31,12 +31,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'nanotech/jellybeans.vim'
 
 " Vim-Colorscheme
-Plug 'altercation/vim-colors-solarized'
-Plug 'flazz/vim-colorschemes'
+" Plug 'altercation/vim-colors-solarized'
+" Plug 'flazz/vim-colorschemes'
 
 " Vim-airline
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline-themes'
 
 " YouCompleteMe
 " Plug 'Valloric/YouCompleteMe'
@@ -78,7 +78,7 @@ filetype plugin indent off
 
 
 "" {{ Colorscheme 
-colorscheme jellybeans
+" colorscheme jellybeans
 "" }}
 
 " {{ vim-airline
@@ -86,7 +86,7 @@ colorscheme jellybeans
 set laststatus=2
 
 "" theme
-let g:airline_theme= 'tomorrow'
+"let g:airline_theme= 'tomorrow'
 " }}
 "
 "
