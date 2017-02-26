@@ -147,5 +147,8 @@ imap <C-c> <Plug>Tex_MathCal
 imap <C-l> <Plug>Tex_LeftRight
 "" }}
 
+" Error Settings
+let g:Tex_GotoError=0
+
 """ YCM settings
 let g:ycm_confirm_extra_conf = 0
