@@ -44,6 +44,9 @@ Plug 'vim-airline/vim-airline-themes'
 " vim-latex-suite
 Plug 'gerw/vim-latex-suite'
 
+" Vim-latex-live-preview
+Plug 'xuhdev/vim-latex-live-preview'
+
 
 " Make sure you use single quotes
 "
@@ -149,6 +152,9 @@ imap <C-l> <Plug>Tex_LeftRight
 
 " Error Settings
 let g:Tex_GotoError=0
+
+" Vim Latex Live Previewer
+let g:livepreview_previewer='zathura'
 
 """ YCM settings
 let g:ycm_confirm_extra_conf = 0
